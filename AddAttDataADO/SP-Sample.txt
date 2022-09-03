@@ -1,0 +1,171 @@
+﻿-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,AC>
+-- Create date: <Create Date,,2022-08-27>
+-- Description:	<Description: insert a rec to [FCC].[dbo].[am_ant_sys]>
+-- =============================================
+ 
+CREATE PROCEDURE [dbo].[usp_add_am_ant_sys]
+	-- Add the parameters for the stored procedure here
+	@am_dom_status nvarchar(50),
+	@ant_dir_ind nvarchar(50),
+	@ant_mode nvarchar(50),
+	@ant_sys_id nvarchar(50),
+	@application_id nvarchar(50),
+	@aug_count nvarchar(50),
+	@augmented_ind nvarchar(50),
+	@bad_data_switch nvarchar(50),
+	@biased_lat nvarchar(50),
+	@domestic_pattern nvarchar(50),
+	@dummy_data_switch nvarchar(50),
+	@efficiency_restricted nvarchar(50),
+	@efficiency_theoretical nvarchar(50),
+	@eng_record_type nvarchar(50),
+	@feed_circ_other nvarchar(50),
+	@feed_circ_type nvarchar(50),
+	@grandfathered_ind nvarchar(50),
+	@hours_operation nvarchar(50),
+	@lat_deg nvarchar(50),
+	@lat_dir nvarchar(50),
+	@lat_min nvarchar(50),
+	@lat_sec nvarchar(50),
+	@lat_whole_secs nvarchar(50),
+	@lon_deg nvarchar(50),
+	@lon_dir nvarchar(50),
+	@lon_min nvarchar(50),
+	@lon_sec nvarchar(50),
+	@lon_whole_secs nvarchar(50),
+	@mainkey nvarchar(50),
+	@power nvarchar(50),
+	@q_factor nvarchar(50),
+	@q_factor_custom_ind nvarchar(50),
+	@rms_augmented nvarchar(50),
+	@rms_standard nvarchar(50),
+	@rms_theoretical nvarchar(50),
+	@specified_hrs_range nvarchar(50),
+	@tower_count nvarchar(50),
+	@last_update_date nvarchar(50)
+	
+	
+	
+AS
+DECLARE @err_message nvarchar (255),
+		@myErr int -- Local @@ERROR
+
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	BEGIN TRANSACTION 
+
+	BEGIN
+    -- Insert statements for procedure here
+	INSERT INTO [dbo].[am_ant_sys]
+           ([am_dom_status]
+           ,[ant_dir_ind]
+           ,[ant_mode]
+           ,[ant_sys_id]
+           ,[application_id]
+           ,[aug_count]
+           ,[augmented_ind]
+           ,[bad_data_switch]
+           ,[biased_lat]
+           ,[domestic_pattern]
+           ,[dummy_data_switch]
+           ,[efficiency_restricted]
+           ,[efficiency_theoretical]
+           ,[eng_record_type]
+           ,[feed_circ_other]
+           ,[feed_circ_type]
+           ,[grandfathered_ind]
+           ,[hours_operation]
+           ,[lat_deg]
+           ,[lat_dir]
+           ,[lat_min]
+           ,[lat_sec]
+           ,[lat_whole_secs]
+           ,[lon_deg]
+           ,[lon_dir]
+           ,[lon_min]
+           ,[lon_sec]
+           ,[lon_whole_secs]
+           ,[mainkey]
+           ,[power]
+           ,[q_factor]
+           ,[q_factor_custom_ind]
+           ,[rms_augmented]
+           ,[rms_standard]
+           ,[rms_theoretical]
+           ,[specified_hrs_range]
+           ,[tower_count]
+           ,[last_update_date])
+     VALUES
+	 (
+			 @am_dom_status,
+			@ant_dir_ind,
+			@ant_mode,
+			@ant_sys_id,
+			@application_id,
+			@aug_count,
+			@augmented_ind,
+			@bad_data_switch,
+			@biased_lat,
+			@domestic_pattern,
+			@dummy_data_switch,
+			@efficiency_restricted,
+			@efficiency_theoretical,
+			@eng_record_type,
+			@feed_circ_other,
+			@feed_circ_type,
+			@grandfathered_ind,
+			@hours_operation,
+			@lat_deg ,
+			@lat_dir ,
+			@lat_min ,
+			@lat_sec ,
+			@lat_whole_secs ,
+			@lon_deg ,
+			@lon_dir ,
+			@lon_min ,
+			@lon_sec ,
+			@lon_whole_secs ,
+			@mainkey ,
+			@power ,
+			@q_factor ,
+			@q_factor_custom_ind ,
+			@rms_augmented ,
+			@rms_standard ,
+			@rms_theoretical ,
+			@specified_hrs_range ,
+			@tower_count ,
+			@last_update_date 
+	 )
+	 END
+	 IF @myErr != 0 GOTO HANDLE_ERROR 
+	 COMMIT TRAN
+	 RETURN 0
+
+	
+END
+
+HANDLE_ERROR:
+	ROLLBACK TRAN
+	RETURN @myErr
+
+
+GO
