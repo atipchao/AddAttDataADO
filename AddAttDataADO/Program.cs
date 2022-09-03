@@ -14,14 +14,16 @@ namespace AddAttDataADO
 
     class Program
     {
-        public static string ws_start = DateTime.Now.ToString();
-        public static string ws_end;
+        //public static string ws_start = DateTime.Now.ToString();
+        //public static string ws_end;
         public static string _database = ConfigurationSettings.AppSettings["FCCDATA"];
         static int line_cnt = 0;
         static int err_cnt = 0;
 
         static void Main(string[] args)
         {
+            var watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
             //Setup input
             string ws_path = ConfigurationSettings.AppSettings["INPUT_PATH"];
             string ws_input_file = ConfigurationSettings.AppSettings["INPUT_FILE"];
@@ -77,10 +79,12 @@ namespace AddAttDataADO
                     _dest.Close();
                 }
             }
-            Console.WriteLine("dfsfas");
+            
+            watch.Stop();
 
-
-
+            Console.WriteLine($"Execution Time: {watch.ElapsedMilliseconds} ms");
+            Console.WriteLine("FIN..");
+            Console.WriteLine("FIN..");
         }
 
         public static SqlCommand SetupSqlCmd(SqlCommand sqlcom)
